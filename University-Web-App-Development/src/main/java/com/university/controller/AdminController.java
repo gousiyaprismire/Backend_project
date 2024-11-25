@@ -14,7 +14,9 @@ public class AdminController {
 
     @GetMapping("/admin/{name}")
     public Admin getAdminDetails(@PathVariable("name") String name){
+    	System.out.println("Admin get Call");
         return this.adminRepository.findByName(name);
+        
     }
 
     @PostMapping("/admin")
