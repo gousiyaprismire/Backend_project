@@ -1,6 +1,6 @@
 package com.university.serviceImpl;
 
-import com.university.DTO.ScholarshipSearchDTO;
+//import com.university.DTO.ScholarshipSearchDTO;
 import com.university.model.Scholarship;
 import com.university.repository.ScholarshipRepository;
 import com.universtiy.service.ScholarshipService;
