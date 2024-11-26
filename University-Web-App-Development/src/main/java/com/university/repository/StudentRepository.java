@@ -1,10 +1,11 @@
 package com.university.repository;
 
-import com.university.Entity.Student;
-
+import com.university.model.Admin;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface StudentRepository extends JpaRepository<Student, String> {
-    Student findByEmail(String email);
+public interface StudentRepository extends JpaRepository<Admin.Student, String> {
+    Admin.Student findByEmail(String email);
+
+    Admin.Student findByStudentId(String studentId);
 }
 
