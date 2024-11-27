@@ -18,10 +18,7 @@ public class HallOfFameServiceImpl implements HallOfFameService {
     @Autowired
     private HallOfFameRepository hallOfFameRepository;
 
-    public HallOfFame createHallOfFame(HallOfFame hallOfFame) {
-        return hallOfFameRepository.save(hallOfFame);
-    }
-
+    @Override
     public List<HallOfFame> getAllHallOfFames() {
         return hallOfFameRepository.findAll();
     }

@@ -16,12 +16,6 @@ public class HallOfFameController {
     @Autowired
     private HallOfFameServiceImpl hallOfFameService;
 
-    @PostMapping
-    public ResponseEntity<HallOfFame> createHallOfFame(@RequestBody HallOfFame hallOfFame) {
-        HallOfFame hall=hallOfFameService.createHallOfFame(hallOfFame);
-        return new ResponseEntity<>(hall, HttpStatus.CREATED);
-    }
-
     @GetMapping
     public ResponseEntity<List<HallOfFame>> getAllHallOfFames() {
         List<HallOfFame> hallOfFameLists=hallOfFameService.getAllHallOfFames();
