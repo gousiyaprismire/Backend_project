@@ -2,19 +2,17 @@ package com.university.serviceImpl;
 
 import com.university.model.Admin;
 import com.university.repository.AdminRepository;
-import com.universtiy.service.AdminService;
+import com.universtiy.service.AdminAuthService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-
 @Service
-public class AdminServiceImpl implements AdminService {
+public class AdminAuthServiceImpl implements AdminAuthService {
 
-    private final AdminRepository adminRepository;
+    private  AdminRepository adminRepository;
 
     @Autowired
-    public AdminServiceImpl(AdminRepository adminRepository)
+    public AdminAuthServiceImpl(AdminRepository adminRepository)
     {
         this.adminRepository = adminRepository;
     }

@@ -43,11 +43,13 @@ public class ScholarshipServiceImpl implements ScholarshipService {
 
     @Override
     public Scholarship saveScholarship(Scholarship scholarship) {
+
         return scholarshipRepository.save(scholarship);
     }
 
     @Override
     public Optional<Scholarship> getScholarshipById(Long id) {
+
         return scholarshipRepository.findById(id);
     }
 }

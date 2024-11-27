@@ -1,9 +1,8 @@
 package com.universtiy.service;
 
 import com.university.model.Admin;
-import java.util.List;
 
-public interface AdminService {
+public interface AdminAuthService {
 
 
     Admin createAdmin(Admin admin);

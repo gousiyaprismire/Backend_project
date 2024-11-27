@@ -18,6 +18,7 @@ public class StudentServiceImpl_1 implements StudentService_1 {
 
     @Override
     public List<Student_1> getPendingVerifications() {
+
         return studentRepository1.findByIsVerifiedFalse();
     }
 
