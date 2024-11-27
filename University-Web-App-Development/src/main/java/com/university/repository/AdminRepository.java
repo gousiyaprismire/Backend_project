@@ -7,7 +7,7 @@ import com.university.model.Admin;
 
 @Repository
 public interface AdminRepository extends CrudRepository<Admin,Integer> {
-    public Admin findByName(String name);
+
 }
 
 
