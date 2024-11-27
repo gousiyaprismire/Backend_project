@@ -6,21 +6,24 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@Entity
-@Setter
-@Getter
 @AllArgsConstructor
 @NoArgsConstructor
-public class Admin {
-
+@Setter
+@Getter
+@Entity
+public class Faculty {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
-    @Column
+    private Long id;
+    @Column(nullable = false)
     private String name;
-    @Column
+    @Column(nullable = false)
+    private String designation;
+    @Column(nullable = false)
+    private String biodata;
+    @Column(nullable = false,unique = true)
     private String email;
-    @Column
-    private String password;
+
 
 }
+

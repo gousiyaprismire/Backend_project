@@ -1,26 +1,26 @@
 package com.university.model;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@Entity
 @Setter
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
-public class Admin {
+@Entity
+public class Student_1 {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
-    @Column
+    private Long studentId;
+    private String country;
+    private String university;
     private String name;
-    @Column
     private String email;
-    @Column
-    private String password;
+    private boolean isVerified = false;
+
 
 }

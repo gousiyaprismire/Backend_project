@@ -6,21 +6,17 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@Entity
-@Setter
-@Getter
 @AllArgsConstructor
 @NoArgsConstructor
-public class Admin {
-
+@Setter
+@Getter
+@Entity
+public class Rules_And_Regulations {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
-    @Column
-    private String name;
-    @Column
-    private String email;
-    @Column
-    private String password;
-
+    private Long id;
+    @Column(nullable = false)
+    private String rule;
+    @Column(nullable = false)
+    private String description ;
 }

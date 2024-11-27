@@ -6,21 +6,19 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@Entity
-@Setter
-@Getter
 @AllArgsConstructor
 @NoArgsConstructor
-public class Admin {
+@Setter
+@Getter
+@Entity
+@Table(name = "Hall_Of_Fame")
+public class HallOfFame {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
-    @Column
+    private Long id;
+    @Column(nullable = false)
     private String name;
-    @Column
-    private String email;
-    @Column
-    private String password;
-
+    @Column(nullable = false)
+    private String achievement;
 }
