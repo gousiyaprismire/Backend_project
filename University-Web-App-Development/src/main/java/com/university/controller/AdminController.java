@@ -1,7 +1,8 @@
 package com.university.controller;
 
 import com.university.model.Admin;
-import com.university.serviceImpl.AdminServiceImpl;
+import com.university.serviceImpl.AdminAuthServiceImpl;
+//import com.university.serviceImpl.AdminAuthServiceImpl;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -12,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
 @AllArgsConstructor
 public class AdminController {
 
-    private final AdminServiceImpl adminServiceImpl;
+    private final AdminAuthServiceImpl adminServiceImpl;
 
     @PostMapping
     public ResponseEntity<Admin> createAdmin(@RequestBody Admin admin) {

@@ -3,6 +3,7 @@ package com.university.controller;
 import com.university.model.Faculty;
 import com.university.serviceImpl.FacultyServiceImpl;
 import com.universtiy.service.FacultyService;
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,6 +14,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/college/faculty")
+@AllArgsConstructor
 public class FacultyController {
     @Autowired
     private FacultyServiceImpl facultyService;
