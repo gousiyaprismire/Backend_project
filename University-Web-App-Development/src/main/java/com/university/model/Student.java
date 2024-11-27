@@ -1,26 +1,29 @@
 package com.university.model;
 
 import jakarta.persistence.Entity;
-
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-
 
 @Entity
 public class Student {
 
     @Id
-    private String studentId;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long studentId;
     private String country;
     private String university;
     private String name;
     private String email;
+    private int age;
 
 
-    public String getStudentId() {
+
+    public Long getStudentId() {
         return studentId;
     }
 
-    public void setStudentId(String studentId) {
+    public void setStudentId(Long studentId) {
         this.studentId = studentId;
     }
 
@@ -55,5 +58,12 @@ public class Student {
     public void setEmail(String email) {
         this.email = email;
     }
-}
 
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+}
