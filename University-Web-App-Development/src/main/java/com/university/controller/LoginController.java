@@ -1,7 +1,8 @@
 package com.university.controller;
 
+
+import lombok.AllArgsConstructor;
 import com.university.DTO.LoginResponse;
-import com.university.model.Admin;
 import com.university.model.Student;
 import com.university.repository.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,10 +14,12 @@ import java.util.UUID;
 
 @RestController
 @RequestMapping("/api/students")
+@AllArgsConstructor
 public class LoginController {
 
     @Autowired
     private StudentRepository studentRepository;
+
 
     @PostMapping("/login")
     public ResponseEntity<LoginResponse> login(@RequestBody Student student) {
@@ -29,36 +32,24 @@ public class LoginController {
                     .body(new LoginResponse("success", existingStudent.getStudentId(), "success"));
         }
 
-        student.setStudentId(UUID.randomUUID().toString());
+
+
         studentRepository.save(student);
 
         return ResponseEntity.status(HttpStatus.CREATED)
                 .body(new LoginResponse("success", student.getStudentId(), "success"));
     }
 
+    @GetMapping("/login")
+    public ResponseEntity<LoginResponse> getStudentById(@RequestParam String studentId) {
+        Student existingStudent = studentRepository.findById(studentId).orElse(null);
 
-    @GetMapping("/{studentId}")
-    public ResponseEntity<Student> getStudent(@PathVariable String studentId) {
-        System.out.println("Fetching student details for studentId: " + studentId);
-
-        Student student = studentRepository.findByStudentId(studentId);
-        if (student != null) {
-            return ResponseEntity.status(HttpStatus.OK).body(student);
-        } else {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+        if (existingStudent != null) {
+            return ResponseEntity.status(HttpStatus.OK)
+                    .body(new LoginResponse("success", existingStudent.getStudentId(), "success"));
         }
-    }
 
-
-    @GetMapping("/email/{email}")
-    public ResponseEntity<Student> getStudentByEmail(@PathVariable String email) {
-        System.out.println("Fetching student details for email: " + email);
-
-        Student student = studentRepository.findByEmail(email);
-        if (student != null) {
-            return ResponseEntity.status(HttpStatus.OK).body(student);
-        } else {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
-        }
+        return ResponseEntity.status(HttpStatus.NOT_FOUND)
+                .body(new LoginResponse("error", null, "Student not found"));
     }
 }
