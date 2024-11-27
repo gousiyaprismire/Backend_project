@@ -10,4 +10,6 @@ public interface AdminAuthService {
     Admin findAdminByEmail(String email);
 
     boolean validateLogin(String email, String password);
+
+
 }

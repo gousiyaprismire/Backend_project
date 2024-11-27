@@ -32,10 +32,11 @@ public class AdminAuthServiceImpl implements AdminAuthService {
     @Override
     public boolean validateLogin(String email, String password) {
         Admin admin = adminRepository.findByEmail(email);
-        if (admin != null)
-        {
+        if (admin != null) {
             return admin.getPassword().equals(password);
         }
         return false;
+
+
     }
 }
