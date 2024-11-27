@@ -1,7 +1,6 @@
 package com.university.controller;
 
 import com.university.DTO.LoginResponse;
-import com.university.model.Admin;
 import com.university.repository.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
