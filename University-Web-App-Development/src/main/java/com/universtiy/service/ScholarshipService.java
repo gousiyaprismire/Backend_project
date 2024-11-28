@@ -7,6 +7,8 @@ import java.util.List;
 public interface ScholarshipService {
 
     Scholarship createScholarship(Scholarship scholarship);
+
     List<Scholarship> getAllScholarships();
+
     List<ScholarshipSearchDTO> searchScholarships(String type, String eligibility);
 }

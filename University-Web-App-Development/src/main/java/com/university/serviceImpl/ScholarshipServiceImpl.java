@@ -6,9 +6,9 @@ import com.university.repository.ScholarshipRepository;
 import com.universtiy.service.ScholarshipService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 import java.util.ArrayList;
 import java.util.List;
-
 
 @Service
 public class ScholarshipServiceImpl implements ScholarshipService {
@@ -33,17 +33,21 @@ public class ScholarshipServiceImpl implements ScholarshipService {
 
         for (Scholarship scholarship : scholarships) {
             boolean matches = true;
+
             if (type != null && !scholarship.getType().equalsIgnoreCase(type)) {
                 matches = false;
             }
             if (eligibility != null && !scholarship.getEligibility().equalsIgnoreCase(eligibility)) {
                 matches = false;
             }
+
             if (matches) {
+                String duration = "4years";
+
                 ScholarshipSearchDTO searchDTO = new ScholarshipSearchDTO(
                         scholarship.getName(),
                         scholarship.getEligibility(),
-                        scholarship.getType(),
+                        duration,
                         scholarship.getBenefits(),
                         scholarship.getEligibility()
                 );

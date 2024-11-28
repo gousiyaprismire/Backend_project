@@ -16,7 +16,7 @@ public class ScholarshipSearchController {
 
     @PostMapping
     public List<ScholarshipSearchDTO> searchScholarships(@RequestBody ScholarshipSearchDTO searchDTO) {
-        return scholarshipService.searchScholarships(searchDTO.getCourseName(), searchDTO.getLevel());
+        return scholarshipService.searchScholarships(searchDTO.getLevel(), searchDTO.getEntryRequirements());
     }
 
     @GetMapping
