@@ -12,11 +12,15 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/admin")
-@AllArgsConstructor
 public class AdminController {
 
 	@Autowired
     private AdminAuthServiceImpl adminServiceImpl;
+
+    public AdminController(AdminAuthServiceImpl adminServiceImpl)
+    {
+        this.adminServiceImpl = adminServiceImpl;
+    }
 
     @PostMapping
     public ResponseEntity<Admin> createAdmin(@RequestBody Admin admin) {
@@ -36,7 +40,8 @@ public class AdminController {
     }
 
     @PostMapping("/login/{email}/{password}")
-    public ResponseEntity<String> login(@PathVariable String email, @PathVariable String password) {
+    public ResponseEntity<String> login(@PathVariable String email, @PathVariable String password)
+    {
         boolean isValid = adminServiceImpl.validateLogin(email, password);
         if (isValid) {
             return new ResponseEntity<>("Successfully logged in!", HttpStatus.OK);
