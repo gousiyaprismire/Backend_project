@@ -33,7 +33,6 @@ public class LoginController {
         }
 
 
-
         studentRepository.save(student);
 
         return ResponseEntity.status(HttpStatus.CREATED)
@@ -51,5 +50,6 @@ public class LoginController {
 
         return ResponseEntity.status(HttpStatus.NOT_FOUND)
                 .body(new LoginResponse("error", null, "Student not found"));
+
     }
 }

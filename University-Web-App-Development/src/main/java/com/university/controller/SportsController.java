@@ -30,5 +30,6 @@ public class SportsController {
 
         return ResponseEntity.status(HttpStatus.CREATED)
                 .body("Sport event created successfully.");
+
     }
 }
