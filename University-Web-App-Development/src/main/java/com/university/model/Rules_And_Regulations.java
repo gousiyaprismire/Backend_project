@@ -51,12 +51,5 @@ public class Rules_And_Regulations {
 
     }
 
-    @Override
-    public String toString() {
-        return "Rules_And_Regulations{" +
-                "id=" + id +
-                ", rule='" + rule + '\'' +
-                ", description='" + description + '\'' +
-                '}';
-    }
+
 }
