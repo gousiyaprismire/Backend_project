@@ -9,13 +9,8 @@ import org.springframework.stereotype.Service;
 @Service
 public class AdminAuthServiceImpl implements AdminAuthService {
 
+	@Autowired
     private  AdminRepository adminRepository;
-
-    @Autowired
-    public AdminAuthServiceImpl(AdminRepository adminRepository)
-    {
-        this.adminRepository = adminRepository;
-    }
 
     @Override
     public Admin createAdmin(Admin admin)

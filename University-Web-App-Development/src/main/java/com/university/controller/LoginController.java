@@ -20,7 +20,6 @@ public class LoginController {
     @Autowired
     private StudentRepository studentRepository;
 
-
     @PostMapping("/login")
     public ResponseEntity<LoginResponse> login(@RequestBody Student student) {
         System.out.println("Login attempt for student: " + student.getEmail());
@@ -41,7 +40,7 @@ public class LoginController {
     }
 
     @GetMapping("/login")
-    public ResponseEntity<LoginResponse> getStudentById(@RequestParam String studentId) {
+    public ResponseEntity<LoginResponse> getStudentById(@RequestParam Long studentId) {
         Student existingStudent = studentRepository.findById(studentId).orElse(null);
 
         if (existingStudent != null) {
