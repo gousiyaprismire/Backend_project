@@ -2,10 +2,6 @@ package com.university.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 @Entity
 public class Student_1 {
@@ -26,7 +22,12 @@ public class Student_1 {
 		this.email = email;
 		this.isVerified = isVerified;
 	}
+
+	public Student_1(){
+
+	}
 	public Long getStudentId() {
+
 		return studentId;
 	}
 	public void setStudentId(Long studentId) {
