@@ -6,10 +6,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@AllArgsConstructor
-@NoArgsConstructor
-@Setter
-@Getter
+
 @Entity
 public class Rules_And_Regulations {
     @Id
@@ -19,4 +16,37 @@ public class Rules_And_Regulations {
     private String rule;
     @Column(nullable = false)
     private String description ;
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getRule() {
+        return rule;
+    }
+
+    public void setRule(String rule) {
+        this.rule = rule;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public Rules_And_Regulations(Long id, String rule, String description) {
+        this.id = id;
+        this.rule = rule;
+        this.description = description;
+    }
+    public Rules_And_Regulations(){
+
+    }
+
 }
