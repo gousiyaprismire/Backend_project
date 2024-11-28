@@ -21,7 +21,7 @@ public class AnnouncementController {
         return  new ResponseEntity<>(annoucement1, HttpStatus.CREATED);
     }
     @GetMapping("/getall")
-    public ResponseEntity<List<Announcement>> getall(){
+    public ResponseEntity<List<Announcement>> getallannouncements(){
         List<Announcement> annoucement = announcementService.getall();
         return new ResponseEntity<>(annoucement, HttpStatus.OK);
     }
