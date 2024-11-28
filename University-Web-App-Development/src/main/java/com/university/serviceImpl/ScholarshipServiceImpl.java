@@ -1,15 +1,14 @@
 package com.university.serviceImpl;
 
-//import com.university.DTO.ScholarshipSearchDTO;
+import com.university.DTO.ScholarshipSearchDTO;
 import com.university.model.Scholarship;
 import com.university.repository.ScholarshipRepository;
 import com.universtiy.service.ScholarshipService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
+
 
 @Service
 public class ScholarshipServiceImpl implements ScholarshipService {
@@ -18,38 +17,39 @@ public class ScholarshipServiceImpl implements ScholarshipService {
     private ScholarshipRepository scholarshipRepository;
 
     @Override
-    public List<Scholarship> getAllScholarships() {
-        return scholarshipRepository.findAll();
-    }
-
-//    @Override
-//    public List<ScholarshipSearchDTO> searchScholarships(String type, String eligibility) {
-//
-//        List<Scholarship> scholarships = scholarshipRepository.findByTypeAndEligibility(type, eligibility);
-//        List<ScholarshipSearchDTO> result = new ArrayList<>();
-//
-//        for (Scholarship scholarship : scholarships) {
-//            ScholarshipSearchDTO dto = new ScholarshipSearchDTO(
-//                    scholarship.getName(),
-//                    scholarship.getEligibility(),
-//                    "2 years",
-//                    "Description for " + scholarship.getName(),
-//                    "Entry requirements for " + scholarship.getName()
-//            );
-//            result.add(dto);
-//        }
-//        return result;
-//    }
-
-    @Override
-    public Scholarship saveScholarship(Scholarship scholarship) {
-
+    public Scholarship createScholarship(Scholarship scholarship) {
         return scholarshipRepository.save(scholarship);
     }
 
     @Override
-    public Optional<Scholarship> getScholarshipById(Long id) {
+    public List<Scholarship> getAllScholarships() {
+        return scholarshipRepository.findAll();
+    }
 
-        return scholarshipRepository.findById(id);
+    @Override
+    public List<ScholarshipSearchDTO> searchScholarships(String type, String eligibility) {
+        List<Scholarship> scholarships = scholarshipRepository.findAll();
+        List<ScholarshipSearchDTO> result = new ArrayList<>();
+
+        for (Scholarship scholarship : scholarships) {
+            boolean matches = true;
+            if (type != null && !scholarship.getType().equalsIgnoreCase(type)) {
+                matches = false;
+            }
+            if (eligibility != null && !scholarship.getEligibility().equalsIgnoreCase(eligibility)) {
+                matches = false;
+            }
+            if (matches) {
+                ScholarshipSearchDTO searchDTO = new ScholarshipSearchDTO(
+                        scholarship.getName(),
+                        scholarship.getEligibility(),
+                        scholarship.getType(),
+                        scholarship.getBenefits(),
+                        scholarship.getEligibility()
+                );
+                result.add(searchDTO);
+            }
+        }
+        return result;
     }
 }
