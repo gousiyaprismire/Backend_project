@@ -62,6 +62,17 @@ public class Faculty {
         this.biodata = biodata;
     }
 
+    @Override
+    public String toString() {
+        return "Faculty{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", designation='" + designation + '\'' +
+                ", biodata='" + biodata + '\'' +
+                ", email='" + email + '\'' +
+                '}';
+    }
+
     public String getEmail() {
         return email;
     }
