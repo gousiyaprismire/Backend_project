@@ -16,6 +16,10 @@ public class ScholarshipSearchDTO {
 		this.description = description;
 		this.entryRequirements = entryRequirements;
 	}
+
+	public ScholarshipSearchDTO() {
+	}
+
 	public String getCourseName() {
 		return courseName;
 	}
@@ -51,6 +55,4 @@ public class ScholarshipSearchDTO {
 		return "ScholarshipSearchDTO [courseName=" + courseName + ", level=" + level + ", duration=" + duration
 				+ ", description=" + description + ", entryRequirements=" + entryRequirements + "]";
 	}
-    
-    
 }

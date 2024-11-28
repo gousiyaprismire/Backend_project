@@ -37,6 +37,10 @@ public class Scholarship {
 		this.application_deadline = application_deadline;
 		this.apply_link = apply_link;
 	}
+
+	public Scholarship() {
+	}
+
 	public Long getId() {
 		return id;
 	}

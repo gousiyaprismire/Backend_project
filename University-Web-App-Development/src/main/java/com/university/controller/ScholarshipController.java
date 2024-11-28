@@ -12,16 +12,16 @@ import java.util.List;
 public class ScholarshipController {
 
     @Autowired
-    private ScholarshipServiceImpl scholarshipServiceImpl;
+    private ScholarshipServiceImpl scholarshipService;
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public Scholarship createScholarship(@RequestBody Scholarship scholarship) {
-        return scholarshipServiceImpl.createScholarship(scholarship);
+        return scholarshipService.createScholarship(scholarship);
     }
 
     @GetMapping
     public List<Scholarship> getAllScholarships() {
-        return scholarshipServiceImpl.getAllScholarships();
+        return scholarshipService.getAllScholarships();
     }
 }
