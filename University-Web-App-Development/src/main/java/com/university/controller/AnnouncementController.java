@@ -2,7 +2,6 @@ package com.university.controller;
 
 import com.university.model.Announcement;
 import com.university.serviceImpl.AnnouncementServiceImpl;
-import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -12,7 +11,6 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/college/announcements")
-@AllArgsConstructor
 public class AnnouncementController {
     @Autowired
     private AnnouncementServiceImpl announcementService;
