@@ -14,7 +14,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/college/faculty")
-@AllArgsConstructor
+
 public class FacultyController {
     @Autowired
     private FacultyServiceImpl facultyService;
