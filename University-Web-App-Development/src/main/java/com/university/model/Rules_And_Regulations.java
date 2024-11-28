@@ -32,14 +32,7 @@ public class Rules_And_Regulations {
         this.rule = rule;
     }
 
-    @Override
-    public String toString() {
-        return "Rules_And_Regulations{" +
-                "id=" + id +
-                ", rule='" + rule + '\'' +
-                ", description='" + description + '\'' +
-                '}';
-    }
+
 
     public String getDescription() {
         return description;
