@@ -31,9 +31,9 @@ public class StudentServiceImpl_1 implements StudentService_1 {
             Student_1 student1 = studentOpt.get();
             student1.setVerified(true);
             studentRepository1.save(student1);
-            return "Student successfully approved";
+            return "Student Successfully Approved";
         } else {
-            return "Student not found";
+            return "Student Not Found";
         }
     }
 
@@ -46,9 +46,9 @@ public class StudentServiceImpl_1 implements StudentService_1 {
             Student_1 student1 = studentOpt.get();
             student1.setVerified(false);
             studentRepository1.save(student1);
-            return "Student successfully rejected: " + reason;
+            return "Student Successfully Rejected: " + reason;
         } else {
-            return "Student not found";
+            return "Student Not Found";
         }
     }
 
@@ -56,6 +56,6 @@ public class StudentServiceImpl_1 implements StudentService_1 {
     @Transactional
     public String createStudent(Student_1 student1) {
         studentRepository1.save(student1);
-        return "Student created successfully!";
+        return "Student Created Successfully!";
     }
 }
