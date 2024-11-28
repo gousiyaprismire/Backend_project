@@ -1,12 +1,11 @@
 package com.university.repository;
-import com.university.model.Student;
+
+import com.university.model.SportEvent;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface StudentRepository extends JpaRepository<Student, String> {
+public interface SportEventRepository extends JpaRepository<SportEvent, Long> {
 
-    Student findByEmail(String email);
+
 }
-
-
