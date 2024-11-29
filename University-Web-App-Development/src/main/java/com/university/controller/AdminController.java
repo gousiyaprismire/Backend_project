@@ -2,9 +2,6 @@ package com.university.controller;
 
 import com.university.model.Admin;
 import com.university.serviceImpl.AdminAuthServiceImpl;
-//import com.university.serviceImpl.AdminAuthServiceImpl;
-import lombok.AllArgsConstructor;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,23 +11,19 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/api/admin")
 public class AdminController {
 
-	@Autowired
+    @Autowired
     private AdminAuthServiceImpl adminServiceImpl;
 
-    public AdminController(AdminAuthServiceImpl adminServiceImpl)
-    {
-        this.adminServiceImpl = adminServiceImpl;
-    }
-
     @PostMapping
-    public ResponseEntity<Admin> createAdmin(@RequestBody Admin admin) {
+    public ResponseEntity<Admin> createAdmin(@RequestBody Admin admin)
+    {
         Admin createdAdmin = adminServiceImpl.createAdmin(admin);
         return new ResponseEntity<>(createdAdmin, HttpStatus.CREATED);
     }
 
-
     @GetMapping("/findByEmail/{email}")
-    public ResponseEntity<?> findByEmail(@PathVariable String email) {
+    public ResponseEntity<?> findByEmail(@PathVariable String email)
+    {
         Admin admin = adminServiceImpl.findAdminByEmail(email);
         if (admin != null) {
             return new ResponseEntity<>(admin, HttpStatus.OK);
@@ -39,18 +32,15 @@ public class AdminController {
         }
     }
 
-    @PostMapping("/login/{email}/{password}")
-    public ResponseEntity<String> login(@PathVariable String email, @PathVariable String password)
-    {
-        boolean isValid = adminServiceImpl.validateLogin(email, password);
+    @PostMapping("/login/{email}/{admin_password}")
+    public ResponseEntity<String> login(@PathVariable String email, @PathVariable String admin_password) {
+        boolean isValid = adminServiceImpl.validateLogin(email, admin_password);
         if (isValid) {
             return new ResponseEntity<>("Successfully logged in!", HttpStatus.OK);
         } else {
             return new ResponseEntity<>("Invalid email or password!", HttpStatus.UNAUTHORIZED);
         }
-
     }
-
 
 
     @PostMapping("/logout")
@@ -59,4 +49,3 @@ public class AdminController {
         return new ResponseEntity<>("Successfully logged out!", HttpStatus.OK);
     }
 }
-

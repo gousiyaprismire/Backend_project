@@ -9,55 +9,71 @@ import lombok.Setter;
 @Entity
 public class Admin {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
-    @Column
-    private String name;
-    @Column
-    private String email;
-    @Column
-    private String password;
-	public Admin(int id, String name, String email, String password) {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int id;
+
+	@Column
+	private String admin_name;
+
+	@Column
+	private String email;
+
+	@Column
+	private String admin_password;
+
+	public Admin(int id, String admin_name, String email, String admin_password) {
 		this.id = id;
-		this.name = name;
+		this.admin_name = admin_name;
 		this.email = email;
-		this.password = password;
+		this.admin_password = admin_password;
 	}
+
 
 	public Admin() {
-
 	}
+
 
 	public int getId() {
 		return id;
 	}
+
 	public void setId(int id) {
 		this.id = id;
 	}
-	public String getName() {
-		return name;
+
+	public String getAdmin_name() {
+		return admin_name;
 	}
-	public void setName(String name) {
-		this.name = name;
+
+	public void setAdmin_name(String admin_name) {
+		this.admin_name = admin_name;
 	}
+
 	public String getEmail() {
 		return email;
 	}
+
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public String getPassword() {
-		return password;
+
+	public String getAdmin_password() {
+		return admin_password;
 	}
-	public void setPassword(String password) {
-		this.password = password;
+
+	public void setAdmin_password(String admin_password) {
+		this.admin_password = admin_password;
 	}
+
+
 	@Override
 	public String toString() {
-		return "Admin [id=" + id + ", name=" + name + ", email=" + email + ", password=" + password + "]";
+		return "Admin{" +
+				"id=" + id +
+				", admin_name='" + admin_name + '\'' +
+				", email='" + email + '\'' +
+				", admin_password='" + admin_password + '\'' +
+				'}';
 	}
-    
-    
-
 }

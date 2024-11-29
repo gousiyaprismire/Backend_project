@@ -9,31 +9,28 @@ import org.springframework.stereotype.Service;
 @Service
 public class AdminAuthServiceImpl implements AdminAuthService {
 
-	@Autowired
-    private  AdminRepository adminRepository;
+    @Autowired
+    private AdminRepository adminRepository;
 
     @Override
     public Admin createAdmin(Admin admin)
     {
-
         return adminRepository.save(admin);
     }
+
 
     @Override
     public Admin findAdminByEmail(String email)
     {
-
         return adminRepository.findByEmail(email);
     }
 
     @Override
-    public boolean validateLogin(String email, String password)
-    {
+    public boolean validateLogin(String email, String admin_password) {
         Admin admin = adminRepository.findByEmail(email);
         if (admin != null) {
-            return admin.getPassword().equals(password);
+            return admin.getAdmin_password().equals(admin_password);
         }
         return false;
-
     }
 }
