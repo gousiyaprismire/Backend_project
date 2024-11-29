@@ -27,4 +27,5 @@ public class HallOfFameController {
         List<HallOfFame> hallOfFameLists=hallOfFameService.getAllHallOfFames();
         return new ResponseEntity<>(hallOfFameLists,HttpStatus.OK);
     }
+
 }
