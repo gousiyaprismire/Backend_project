@@ -19,6 +19,7 @@ public class HallOfFameController {
     @PostMapping
     public ResponseEntity<HallOfFame> createHallOfFame(@RequestBody HallOfFame hallOfFame) {
         HallOfFame hall=hallOfFameService.createHallOfFame(hallOfFame);
+
         return new ResponseEntity<>(hall, HttpStatus.CREATED);
     }
 
