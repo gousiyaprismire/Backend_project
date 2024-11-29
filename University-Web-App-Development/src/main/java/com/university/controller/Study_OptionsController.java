@@ -3,6 +3,7 @@ package com.university.controller;
 import com.university.model.Study_Options;
 import com.university.serviceImpl.Study_OptionsServiceImpl;
 import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -13,7 +14,8 @@ import java.util.List;
 @RequestMapping("/api/college/study-options")
 public class Study_OptionsController {
 
-    private final Study_OptionsServiceImpl study_OptionsServiceImpl;
+    @Autowired
+    private Study_OptionsServiceImpl study_OptionsServiceImpl;
 
     public Study_OptionsController(Study_OptionsServiceImpl studyOptionsServiceImpl) {
         study_OptionsServiceImpl = studyOptionsServiceImpl;
