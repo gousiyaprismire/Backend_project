@@ -27,7 +27,7 @@ public class UploadController {
 
     @PostMapping({"/upload-id"})
     public ResponseEntity<String> uploadCollegeId(@RequestParam("file") MultipartFile file, @RequestParam("studentId") UUID studentId) {
-        Student existingStudent = (Student)this.studentRepository.findById(studentId.toString()).orElse((Student) null);
+        Student existingStudent = (Student)this.studentRepository.findById(Long.valueOf(studentId.toString())).orElse((Student) null);
         if (existingStudent == null) {
             return new ResponseEntity("Error: Student not found.", HttpStatus.BAD_REQUEST);
         } else {

@@ -2,7 +2,7 @@ package com.university.serviceImpl;
 
 import com.university.model.Study_Options;
 import com.university.repository.Study_OptionsRepository;
-import com.universtiy.service.Study_OptionsService;
+import com.university.service.Study_OptionsService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
