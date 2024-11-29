@@ -29,7 +29,6 @@ public class FacultyController {
         return faculty.map(value -> new ResponseEntity<>(value, HttpStatus.OK))
                 .orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
-
     @PostMapping
     public ResponseEntity<Faculty> SaveFaculty(@RequestBody Faculty faculty) {
         Faculty savedFaculty = facultyService.saveFaculty(faculty);

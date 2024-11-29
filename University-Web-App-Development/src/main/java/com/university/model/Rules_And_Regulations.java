@@ -16,6 +16,16 @@ public class Rules_And_Regulations {
     private String rule;
     @Column(nullable = false)
     private String description ;
+
+    public Rules_And_Regulations(Long id, String rule, String description) {
+        this.id = id;
+        this.rule = rule;
+        this.description = description;
+    }
+    public Rules_And_Regulations(){
+
+    }
+
     public Long getId() {
         return id;
     }
@@ -32,24 +42,16 @@ public class Rules_And_Regulations {
         this.rule = rule;
     }
 
-
-
     public String getDescription() {
         return description;
     }
 
     public void setDescription(String description) {
+
         this.description = description;
     }
 
-    public Rules_And_Regulations(Long id, String rule, String description) {
-        this.id = id;
-        this.rule = rule;
-        this.description = description;
-    }
-    public Rules_And_Regulations(){
 
-    }
 
     @Override
     public String toString() {
