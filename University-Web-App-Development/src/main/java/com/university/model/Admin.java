@@ -22,7 +22,6 @@ public class Admin {
 	@Column
 	private String admin_password;
 
-
 	public Admin(int id, String admin_name, String email, String admin_password) {
 		this.id = id;
 		this.admin_name = admin_name;

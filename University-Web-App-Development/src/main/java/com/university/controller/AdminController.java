@@ -33,8 +33,7 @@ public class AdminController {
     }
 
     @PostMapping("/login/{email}/{admin_password}")
-    public ResponseEntity<String> login(@PathVariable String email, @PathVariable String admin_password)
-    {
+    public ResponseEntity<String> login(@PathVariable String email, @PathVariable String admin_password) {
         boolean isValid = adminServiceImpl.validateLogin(email, admin_password);
         if (isValid) {
             return new ResponseEntity<>("Successfully logged in!", HttpStatus.OK);
@@ -42,6 +41,7 @@ public class AdminController {
             return new ResponseEntity<>("Invalid email or password!", HttpStatus.UNAUTHORIZED);
         }
     }
+
 
     @PostMapping("/logout")
     public ResponseEntity<String> logout() {

@@ -18,6 +18,7 @@ public class AdminAuthServiceImpl implements AdminAuthService {
         return adminRepository.save(admin);
     }
 
+
     @Override
     public Admin findAdminByEmail(String email)
     {
