@@ -2,7 +2,8 @@ package com.university.serviceImpl;
 
 import com.university.model.Announcement;
 import com.university.repository.AnnouncementRepository;
-import com.universtiy.service.AnnouncementService;
+import com.university.service.AnnouncementService;
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

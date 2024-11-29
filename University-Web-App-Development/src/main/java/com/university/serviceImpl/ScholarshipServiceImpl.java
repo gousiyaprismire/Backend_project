@@ -3,11 +3,10 @@ package com.university.serviceImpl;
 import com.university.DTO.ScholarshipSearchDTO;
 import com.university.model.Scholarship;
 import com.university.repository.ScholarshipRepository;
-import com.universtiy.service.ScholarshipService;
+import com.university.service.ScholarshipService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Service

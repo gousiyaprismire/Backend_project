@@ -2,7 +2,7 @@ package com.university.serviceImpl;
 
 import com.university.model.Rules_And_Regulations;
 import com.university.repository.RuleRepository;
-import com.universtiy.service.RuleService;
+import com.university.service.RuleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

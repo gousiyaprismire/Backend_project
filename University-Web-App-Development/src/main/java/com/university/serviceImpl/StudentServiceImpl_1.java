@@ -2,7 +2,7 @@ package com.university.serviceImpl;
 
 import com.university.model.Student_1;
 import com.university.repository.StudentRepository_1;
-import com.universtiy.service.StudentService_1;
+import com.university.service.StudentService_1;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

@@ -2,7 +2,7 @@ package com.university.serviceImpl;
 
 import com.university.model.Admin;
 import com.university.repository.AdminRepository;
-import com.universtiy.service.AdminAuthService;
+import com.university.service.AdminAuthService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

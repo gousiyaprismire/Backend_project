@@ -2,7 +2,6 @@ package com.university.controller;
 
 import com.university.model.Faculty;
 import com.university.serviceImpl.FacultyServiceImpl;
-import com.universtiy.service.FacultyService;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

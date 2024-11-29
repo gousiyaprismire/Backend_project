@@ -2,7 +2,7 @@ package com.university.controller;
 
 
 import com.university.model.Student_1;
-import com.universtiy.service.StudentService_1;
+import com.university.service.StudentService_1;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
