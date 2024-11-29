@@ -22,7 +22,7 @@ public class HallOfFameController {
         return new ResponseEntity<>(hall, HttpStatus.CREATED);
     }
 
-    @GetMapping
+    @GetMapping("/getAll")
     public ResponseEntity<List<HallOfFame>> getAllHallOfFames() {
         List<HallOfFame> hallOfFameLists=hallOfFameService.getAllHallOfFames();
         return new ResponseEntity<>(hallOfFameLists,HttpStatus.OK);
