@@ -1,4 +1,4 @@
-package com.universtiy.service;
+package com.university.service;
 
 import com.university.model.Student;
 import com.university.repository.StudentRepository;

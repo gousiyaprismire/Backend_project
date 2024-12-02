@@ -2,7 +2,7 @@ package com.university.serviceImpl;
 
 import com.university.model.Faculty;
 import com.university.repository.FacultyRepository;
-import com.universtiy.service.FacultyService;
+import com.university.service.FacultyService;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

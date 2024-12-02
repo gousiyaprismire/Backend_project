@@ -1,4 +1,4 @@
-package com.universtiy.service;
+package com.university.service;
 
 import com.university.model.Study_Options;
 import java.util.List;
