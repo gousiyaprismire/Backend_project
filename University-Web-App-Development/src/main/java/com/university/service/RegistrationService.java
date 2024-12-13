@@ -35,3 +35,4 @@ public class RegistrationService {
         return studentRegistrationRepository.save(student);
     }
 }
+
