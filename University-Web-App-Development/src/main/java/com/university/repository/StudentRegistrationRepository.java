@@ -11,4 +11,3 @@ public interface StudentRegistrationRepository extends JpaRepository<StudentRegi
     StudentRegistration findByEmail(String email);
 }
 
-
