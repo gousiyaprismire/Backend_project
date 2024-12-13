@@ -145,4 +145,3 @@ public class StudentRegistration {
         this.status = status;
     }
 }
-

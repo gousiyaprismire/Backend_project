@@ -10,4 +10,3 @@ public interface StudentRegistrationRepository extends JpaRepository<StudentRegi
     Optional<StudentRegistration> findByEmailOrUsername(String email, String username);
     StudentRegistration findByEmail(String email);
 }
-
