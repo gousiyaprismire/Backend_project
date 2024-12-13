@@ -1,51 +1,38 @@
 package com.university.controller;
-
 import com.university.model.Admin;
-import com.university.serviceImpl.AdminAuthServiceImpl;
+import com.university.service.AdminService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/api/admin")
+@RequestMapping("/api/admins")
+@CrossOrigin(origins = "http://localhost:3000")
 public class AdminController {
 
     @Autowired
-    private AdminAuthServiceImpl adminServiceImpl;
+    private AdminService adminService;
 
-    @PostMapping
-    public ResponseEntity<Admin> createAdmin(@RequestBody Admin admin)
-    {
-        Admin createdAdmin = adminServiceImpl.createAdmin(admin);
-        return new ResponseEntity<>(createdAdmin, HttpStatus.CREATED);
-    }
-
-    @GetMapping("/findByEmail/{email}")
-    public ResponseEntity<?> findByEmail(@PathVariable String email)
-    {
-        Admin admin = adminServiceImpl.findAdminByEmail(email);
-        if (admin != null) {
-            return new ResponseEntity<>(admin, HttpStatus.OK);
-        } else {
-            return new ResponseEntity<>("Record not found for email: " + email, HttpStatus.NOT_FOUND);
+    @PostMapping("/register")
+    public ResponseEntity<String> registerAdmin(@RequestBody Admin admin) {
+        try {
+            adminService.registerAdmin(admin);
+            return ResponseEntity.ok("Admin registered successfully!");
+        } catch (IllegalArgumentException e) {
+            return ResponseEntity.badRequest().body(e.getMessage());
         }
     }
 
-    @PostMapping("/login/{email}/{admin_password}")
-    public ResponseEntity<String> login(@PathVariable String email, @PathVariable String admin_password) {
-        boolean isValid = adminServiceImpl.validateLogin(email, admin_password);
-        if (isValid) {
-            return new ResponseEntity<>("Successfully logged in!", HttpStatus.OK);
-        } else {
-            return new ResponseEntity<>("Invalid email or password!", HttpStatus.UNAUTHORIZED);
+    @PostMapping("/login")
+    public ResponseEntity<String> login(@RequestBody Admin admin) {
+        try {
+            Admin loggedInAdmin = adminService.login(admin.getUsername(), admin.getPassword());
+            return ResponseEntity.ok("Login successful! Welcome " + loggedInAdmin.getFullname());
+        } catch (IllegalArgumentException e) {
+            return ResponseEntity.badRequest().body(e.getMessage());
         }
     }
 
 
-    @PostMapping("/logout")
-    public ResponseEntity<String> logout() {
-        // In a real-world scenario, you would invalidate the session or JWT token here.
-        return new ResponseEntity<>("Successfully logged out!", HttpStatus.OK);
-    }
+
 }

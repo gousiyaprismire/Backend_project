@@ -1,53 +1,49 @@
 package com.university.model;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+
 
 @Entity
 public class Admin {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
+	private Long id;
 
-	@Column
-	private String admin_name;
-
-	@Column
+	private String fullname;
 	private String email;
-
-	@Column
-	private String admin_password;
-
-	public Admin(int id, String admin_name, String email, String admin_password) {
-		this.id = id;
-		this.admin_name = admin_name;
-		this.email = email;
-		this.admin_password = admin_password;
-	}
-
+	private String contactNumber;
+	private String adminId;
+	private String username;
+	private String password;
 
 	public Admin() {
 	}
 
+	public Admin(Long id, String fullname, String email, String contactNumber, String adminId, String username, String password) {
+		this.id = id;
+		this.fullname = fullname;
+		this.email = email;
+		this.contactNumber = contactNumber;
+		this.adminId = adminId;
+		this.username = username;
+		this.password = password;
+	}
 
-	public int getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
-	public String getAdmin_name() {
-		return admin_name;
+	public String getFullname() {
+		return fullname;
 	}
 
-	public void setAdmin_name(String admin_name) {
-		this.admin_name = admin_name;
+	public void setFullname(String fullname) {
+		this.fullname = fullname;
 	}
 
 	public String getEmail() {
@@ -58,22 +54,48 @@ public class Admin {
 		this.email = email;
 	}
 
-	public String getAdmin_password() {
-		return admin_password;
+	public String getContactNumber() {
+		return contactNumber;
 	}
 
-	public void setAdmin_password(String admin_password) {
-		this.admin_password = admin_password;
+	public void setContactNumber(String contactNumber) {
+		this.contactNumber = contactNumber;
 	}
 
+	public String getAdminId() {
+		return adminId;
+	}
+
+	public void setAdminId(String adminId) {
+		this.adminId = adminId;
+	}
+
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
 
 	@Override
 	public String toString() {
 		return "Admin{" +
 				"id=" + id +
-				", admin_name='" + admin_name + '\'' +
+				", fullname='" + fullname + '\'' +
 				", email='" + email + '\'' +
-				", admin_password='" + admin_password + '\'' +
+				", contactNumber='" + contactNumber + '\'' +
+				", adminId='" + adminId + '\'' +
+				", username='" + username + '\'' +
+				", password='" + password + '\'' +
 				'}';
 	}
 }
