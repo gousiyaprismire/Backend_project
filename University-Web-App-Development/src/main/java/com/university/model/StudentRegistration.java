@@ -38,7 +38,7 @@ public class StudentRegistration {
 
     private LocalDate enrollDate;
 
-    private String status = "pending"; // Default value
+    private String status = "Pending"; // Default value
 
     // Constructors
     public StudentRegistration(Long id, String fullname, String email, String mobile, String uploadId,
