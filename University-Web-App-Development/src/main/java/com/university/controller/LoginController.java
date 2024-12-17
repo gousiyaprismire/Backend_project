@@ -1,6 +1,5 @@
 package com.university.controller;
 
-
 import lombok.AllArgsConstructor;
 import com.university.DTO.LoginResponse;
 import com.university.model.StudentRegistration;
@@ -10,6 +9,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+@CrossOrigin(origins = "http://localhost:3000")
 @RestController
 @RequestMapping("/api/students")
 @AllArgsConstructor
@@ -18,6 +18,7 @@ public class LoginController {
     @Autowired
     private StudentRegistrationRepository studentRepository;
 
+   
     @PostMapping("/login")
     public ResponseEntity<LoginResponse> login(@RequestBody StudentRegistration student) {
         System.out.println("Login attempt for student: " + student.getEmail());
@@ -30,12 +31,12 @@ public class LoginController {
         }
 
 
-
         studentRepository.save(student);
 
         return ResponseEntity.status(HttpStatus.CREATED)
                 .body(new LoginResponse("success", student.getId(), "success"));
     }
+
 
     @GetMapping("/login")
     public ResponseEntity<LoginResponse> getStudentById(@RequestParam Long studentId) {
