@@ -2,6 +2,7 @@ package com.university.controller;
 
 
 import com.university.model.StudentRegistration;
+import com.university.service.EmailService;
 import com.university.service.RegistrationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -16,6 +17,9 @@ public class StudentRegistrationController {
 
     @Autowired
     private RegistrationService registrationService;
+    
+    @Autowired
+    private EmailService emailService;
 
     // Register a student
     @PostMapping("/register")
@@ -37,16 +41,26 @@ public class StudentRegistrationController {
 
     // Update student status (Approve/Reject)
     @PutMapping("/{id}")
-    public ResponseEntity<StudentRegistration> updateStudentStatus(
-            @PathVariable Long id, @RequestBody StudentRegistration updatedStudent) {
+    public ResponseEntity<?> updateStudentStatus(@PathVariable Long id, @RequestBody StudentRegistration updatedStudent) {
+    	//System.out.println("id :"+id);
         Optional<StudentRegistration> existingStudentOpt = registrationService.getStudentById(id);
+        
         if (existingStudentOpt.isPresent()) {
+        	//System.out.println("id 111111:");
             StudentRegistration existingStudent = existingStudentOpt.get();
-            existingStudent.setStatus(updatedStudent.getStatus());  // Update status to "Approved" or "Rejected"
-            registrationService.saveStudent(existingStudent);  // Save the updated student
+           // System.out.println("id 2222:");
+            // Update student status
+            existingStudent.setStatus(updatedStudent.getStatus());
+            registrationService.saveStudent(existingStudent);
+            System.out.println("id 33333:");
+            // Send email only if the status is "Approved"
+            if ("Approved".equalsIgnoreCase(updatedStudent.getStatus())) {
+                emailService.sendApprovalEmail(existingStudent.getEmail(), existingStudent.getFullname());
+            }
+            System.out.println("id 4444:");
             return ResponseEntity.ok(existingStudent);
         } else {
-            return ResponseEntity.notFound().build();  // Return 404 if student not found
+            return ResponseEntity.notFound().build(); // Return 404 if student not found
         }
     }
 }
