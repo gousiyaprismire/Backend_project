@@ -1,15 +1,21 @@
 package com.university.controller;
 
-import com.university.DTO.LoginResponse;
-import com.university.model.StudentRegistration;
-import com.university.repository.StudentRegistrationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-@CrossOrigin(origins = "http://localhost:3000")
+import com.university.DTO.LoginResponse;
+import com.university.model.StudentRegistration;
+import com.university.repository.StudentRegistrationRepository;
+
+//@CrossOrigin(origins = "http://localhost:3000")
 @RestController
 @RequestMapping("/api/auth")
 public class LoginController {
@@ -17,8 +23,8 @@ public class LoginController {
     @Autowired
     private StudentRegistrationRepository studentRepository;
 
-    @Autowired
-    private PasswordEncoder passwordEncoder;
+    //@Autowired
+    //private PasswordEncoder passwordEncoder;
 
 
     @PostMapping("/register")
@@ -30,7 +36,8 @@ public class LoginController {
         }
 
 
-        student.setPassword(passwordEncoder.encode(student.getPassword()));
+       // student.setPassword(passwordEncoder.encode(student.getPassword()));
+        student.setPassword(student.getPassword());
         StudentRegistration savedStudent = studentRepository.save(student);
 
         return ResponseEntity.status(HttpStatus.CREATED)
@@ -45,7 +52,7 @@ public class LoginController {
 
         if (existingStudent != null) {
 
-            if (passwordEncoder.matches(student.getPassword(), existingStudent.getPassword())) {
+            if (student.getPassword().equalsIgnoreCase(existingStudent.getPassword())) {
                 return ResponseEntity.status(HttpStatus.OK)
                         .body(new LoginResponse("success", existingStudent.getId(), "Login successful"));
             } else {
